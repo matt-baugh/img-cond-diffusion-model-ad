@@ -1,0 +1,111 @@
+# Dataset / dataloading settings
+dataset:
+  something: 0
+dataloader_num_workers: 8
+train_batch_size: 16
+
+# Model settings: https://huggingface.co/docs/diffusers/api/models/unet2d
+unet:
+  # sample_size: 128 # resolution
+  # in_channels: 6 # 3 for noise, 3 for conditioning
+  # out_channels: 3
+  center_input_sample: false
+  time_embedding_type: "positional"
+  freq_shift: 0
+  flip_sin_to_cos: true
+  down_block_types: [
+    "DownBlock2D", 
+    "AttnDownBlock2D", 
+    "AttnDownBlock2D", 
+    "AttnDownBlock2D"
+  ]
+  up_block_types: [
+    "UpBlock2D", 
+    "AttnUpBlock2D", 
+    "AttnUpBlock2D", 
+    "AttnUpBlock2D"
+  ]
+  block_out_channels: [
+    128,
+    256,
+    256,
+    512
+  ]
+  layers_per_block: 2
+  mid_block_scale_factor: 1
+  downsample_padding: 1
+  downsample_type: "conv"
+  upsample_type: "conv"
+  dropout: 0.0
+  act_fn: "silu"
+  attention_head_dim: 8
+  norm_num_groups: 32
+  attn_norm_num_groups: null
+  norm_eps: 1e-05
+  resnet_time_scale_shift: "default"
+  class_embed_type: null
+
+# Task settings
+task_kwargs:
+  intensity_task_scale: 0.1
+  min_push_dist: 0.5
+  max_push_dist: 5
+  use_noise_task: true
+  other_dset_size_cap: 150
+  use_threshold: 0.225
+
+# General settings
+uncond_p: 0.
+noise_offset: 0.1
+input_perturbation: 0.0
+max_train_steps: 500000 
+
+gradient_accumulation_steps: 1
+gradient_checkpointing: false
+
+use_ema: true
+resume_from_checkpoint: best
+seed: 42
+
+# optimizer
+learning_rate: 1e-4
+scale_lr: false
+lr_scheduler: constant
+lr_warmup_steps: 500
+
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 1e-2
+adam_epsilon: 1e-08
+max_grad_norm: 1.0
+prediction_type: epsilon
+use_8bit_adam: false
+snr_gamma: 1.0
+
+# Optimizations
+allow_tf32: true
+mixed_precision: "fp16"
+enable_xformers_memory_efficient_attention: false # does not work
+
+# logging
+report_to: wandb
+tracker_project_name: hf-video-diffusion # wandb project name
+group: cond_generation # for wandb, will group runs per experiment name
+
+# checkpointing
+output_dir: experiments/cond_generation 
+logging_dir: logs # unused ?
+checkpointing_steps: 1000
+checkpoints_total_limit: 2
+
+# Validation settings
+validation_samples: 8
+validation_batch_size: 40
+validation_timesteps: 50
+validation_guidance: 0.
+validation_img_steps: 5000
+validation_loss_steps: 500
+validation_patience: 50000
+validation_loss_ma_alpha: 0.9
+validation_monitoring_start: 5000
+
