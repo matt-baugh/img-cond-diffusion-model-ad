@@ -139,6 +139,33 @@ bash UPD_study/experiments/percentage.sh
 
 The repository contains PyTorch implementations for [VAE](https://arxiv.org/abs/1907.02796), [r-VAE](https://arxiv.org/abs/2005.00031), [f-AnoGAN](https://www.sciencedirect.com/science/article/abs/pii/S1361841518302640), [H-TAE-S](https://arxiv.org/abs/2207.02059), [FAE](https://arxiv.org/abs/2208.10992), [PaDiM](https://arxiv.org/abs/2011.08785), [CFLOW-AD](https://arxiv.org/abs/2107.12571), [RD](https://arxiv.org/abs/2201.10703), [ExpVAE](https://arxiv.org/abs/1911.07389), [AMCons](https://arxiv.org/abs/2203.01671), [PII](https://arxiv.org/abs/2107.02622), [DAE](https://openreview.net/forum?id=Bm8-t_ggzPD) and [CutPaste](https://arxiv.org/abs/2104.04015).
 
+## Cite this work:
+
+```
+@InProceedings{baugh2024imageconditioned,
+    author="Baugh, Matthew
+    and Reynaud, Hadrien
+    and Marimont, Sergio Naval
+    and Cechnicka, Sarah
+    and M{\"u}ller, Johanna P.
+    and Tarroni, Giacomo
+    and Kainz, Bernhard",
+    title="Image-Conditioned Diffusion Models for Medical Anomaly Detection",
+    booktitle="Uncertainty for Safe Utilization of Machine Learning in Medical Imaging",
+    editor="Sudre, Carole H.
+    and Mehta, Raghav
+    and Ouyang, Cheng
+    and Qin, Chen
+    and Rakic, Marianne
+    and Wells, William M.",
+    year="2025",
+    publisher="Springer Nature Switzerland",
+    address="Cham",
+    pages="117--127",
+    isbn="978-3-031-73158-7"
+}
+```
+
 ## Acknowledgements
 
 (Some) HPC resources were provided by the Erlangen National High Performance Computing Center (NHR@FAU) of the Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU) under the NHR projects b143dc and b180dc. NHR funding is provided by federal and Bavarian state authorities. NHR@FAU hardware is partially funded by the German Research Foundation (DFG) – 440719683.
